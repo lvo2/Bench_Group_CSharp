@@ -20,22 +20,22 @@ namespace Automation_Practice.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.5.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Google Search")]
-    public partial class GoogleSearchFeature
+    [NUnit.Framework.DescriptionAttribute("Login")]
+    public partial class LoginFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "GoogleSearch.feature"
+#line 1 "Login.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Google Search", "This feature search a keyword from Google site", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Login", "\tSign the the automation practice page", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,14 @@ namespace Automation_Practice.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Google Search")]
-        [NUnit.Framework.CategoryAttribute("GoogleSearch")]
-        public virtual void GoogleSearch()
+        [NUnit.Framework.DescriptionAttribute("Sign In the Automation Practice page")]
+        [NUnit.Framework.CategoryAttribute("SignIn")]
+        public virtual void SignInTheAutomationPracticePage()
         {
             string[] tagsOfScenario = new string[] {
-                    "GoogleSearch"};
+                    "SignIn"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Google Search", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sign In the Automation Practice page", null, tagsOfScenario, argumentsOfScenario);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -103,19 +103,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
-testRunner.Given("I navigate to the Google page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I navigate to the automation practice page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
-testRunner.And("I see the page loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see the automation practice sign in page is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
-testRunner.When("I enter keyword search \"SpecFlow\" in the Search Text box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I sign in the automation practice page by end user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
-testRunner.And("I click on Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 10
-testRunner.Then("Search shows the items related to SpecFlow", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see the user name is displayed in the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -7,4 +7,4 @@ Given I navigate to the Google page
 And I see the page loaded
 When I enter keyword search "SpecFlow" in the Search Text box
 And I click on Search button
-Then Search items shows the items related to SpecFlow
+Then Search shows the items related to SpecFlow

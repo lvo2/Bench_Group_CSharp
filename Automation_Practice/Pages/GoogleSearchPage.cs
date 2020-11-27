@@ -4,12 +4,14 @@ using System.Text;
 using Automation_Practice.Hooks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support;
+
 
 namespace Automation_Practice.Pages
 {
     public class GoogleSearchPage         
     {
-        public IWebDriver browser;       
+        public IWebDriver browser;    
 
         public string GoToGooglePage(string url)
         {
@@ -57,6 +59,11 @@ namespace Automation_Practice.Pages
             {
                 return false;
             }            
+        }
+
+        public void CloseBrowser()
+        {
+            browser.Close();
         }
     }
 }

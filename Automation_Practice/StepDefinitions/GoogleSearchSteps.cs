@@ -12,31 +12,27 @@ namespace Automation_Practice.StepDefinitions
         public void GivenINavigateToTheGooglePage()
         {
             GoToGooglePage("https://www.google.com");            
-        }
-        
+        }        
         [Given(@"I see the page loaded")]
         public void GivenISeeThePageLoaded()
         {
-            //Assert.IsTrue(IsGooglePage());
-        }
-        
+            Assert.IsTrue(IsGooglePage());
+        }        
         [When(@"I enter keyword search ""(.*)"" in the Search Text box")]
         public void WhenIEnterKeywordSearchInTheSearchTextBox(string keyword)
         {
             FillTxtSearch(keyword);
             GoogleLogoImageClick();
-        }
-        
+        }        
         [When(@"I click on Search button")]
         public void WhenIClickOnSearchButton()
         {
             SearchButtonClick();
-        }
-        
-        [Then(@"Search items shows the items related to SpecFlow")]
-        public void ThenSearchItemsShowsTheItemsRelatedToSpecFlow()
+        }        
+        [Then(@"Search shows the items related to SpecFlow")]
+        public void ThenSearchShowsTheItemsRelatedToSpecFlow()
         {
-           // ScenarioContext.Current.Pending();
+            CloseBrowser();
         }
     }
 }
