@@ -5,6 +5,7 @@ using Automation_Practice.Hooks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support;
+using System.Threading;
 
 namespace Automation_Practice.Pages
 {
@@ -40,6 +41,7 @@ namespace Automation_Practice.Pages
 
         public IWebElement SignOut()
         {
+            Thread.Sleep(2000);
             return browser.FindElement(By.ClassName("logout"));
         }
 
@@ -63,6 +65,7 @@ namespace Automation_Practice.Pages
         public void ClickSignInButton()
         {
             SignInButton().Click();
+            Thread.Sleep(2000);
         }
 
         public void SetEmailValue()
@@ -90,6 +93,10 @@ namespace Automation_Practice.Pages
             {
                 return false;
             }
+        }
+        public void CloseBrowser()
+        {
+            browser.Close();
         }
 
     }

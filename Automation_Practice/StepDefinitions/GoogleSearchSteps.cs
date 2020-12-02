@@ -2,6 +2,7 @@
 using TechTalk.SpecFlow;
 using Automation_Practice.Pages;
 using NUnit.Framework;
+using System.Threading;
 
 namespace Automation_Practice.StepDefinitions
 {
@@ -22,7 +23,7 @@ namespace Automation_Practice.StepDefinitions
         public void WhenIEnterKeywordSearchInTheSearchTextBox(string keyword)
         {
             FillTxtSearch(keyword);
-            GoogleLogoImageClick();
+            //GoogleLogoImageClick();
         }        
         [When(@"I click on Search button")]
         public void WhenIClickOnSearchButton()
@@ -32,6 +33,7 @@ namespace Automation_Practice.StepDefinitions
         [Then(@"Search shows the items related to SpecFlow")]
         public void ThenSearchShowsTheItemsRelatedToSpecFlow()
         {
+            Thread.Sleep(2000);
             CloseBrowser();
         }
     }

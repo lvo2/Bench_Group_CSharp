@@ -29,6 +29,7 @@ namespace Automation_Practice.Pages
             GetTxtSearch().SendKeys(search);
         }
 
+
         public IWebElement SearchButton()
         {
             return browser.FindElements(By.Name("btnK"))[1];
@@ -36,7 +37,8 @@ namespace Automation_Practice.Pages
 
         public void SearchButtonClick()
         {
-            SearchButton().Click();
+            //SearchButton().Click();
+            GetTxtSearch().SendKeys(Keys.Enter);
         }
 
         public IWebElement GoogleLogoImage()

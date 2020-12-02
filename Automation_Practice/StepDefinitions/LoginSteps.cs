@@ -2,6 +2,7 @@
 using TechTalk.SpecFlow;
 using Automation_Practice.Pages;
 using NUnit.Framework;
+using System.Threading;
 
 namespace Automation_Practice.StepDefinitions
 {
@@ -23,6 +24,7 @@ namespace Automation_Practice.StepDefinitions
         [When(@"I sign in the automation practice page by end user")]
         public void WhenISignInTheAutomationPracticePageByEndUser()
         {
+            Thread.Sleep(2000);
             ClickSignInButton();
             SetEmailValue();
             SetPasswordValue();
@@ -33,6 +35,8 @@ namespace Automation_Practice.StepDefinitions
         public void ThenISeeTheUserNameIsDisplayedInTheHomePage()
         {
             Assert.IsTrue(IsSignOut());
+            Thread.Sleep(2000);
+            CloseBrowser();
         }
     }
 }
