@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestEnvironment>
+
+  <PracticeWebsite>http://automationpractice.com/</PracticeWebsite>
+  <GoogleWebsite>https://www.google.com/</GoogleWebsite>
+
+  <!-- Use this to change the browser you want to use for testing
+  Options: Chrome, Firefox, IE, Chrome-Extensio, Firefox-Extension
+  See BrowserFactory.cs for more information -->
+  <Browser>Chrome</Browser>
+</TestEnvironment>

@@ -1,69 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Automation_Practice.Hooks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support;
+﻿using OpenQA.Selenium;
+using Automation_Practice.Common;
+using TechTalk.SpecFlow;
+using SeleniumExtras.PageObjects;
 
 
 namespace Automation_Practice.Pages
 {
-    public class GoogleSearchPage         
+    public class GoogleSearchPage        
     {
-        public IWebDriver browser;    
-
-        public string GoToGooglePage(string url)
+        public GoogleSearchPage(Browser browser) 
         {
-            browser = new ChromeDriver();
-            return browser.Url = url;
+            PageFactory.InitElements(browser.Driver, this);
         }
 
-        public IWebElement GetTxtSearch()
+        readonly Browser browser = ScenarioContext.Current.Get<Browser>("key_browser");
+
+        /// <summary>
+        /// The search text box
+        /// </summary>
+        [FindsBy(How = How.Name, Using = "q")]
+        private IWebElement search_text = null;
+
+        //[FindsBy(How = How.Name, Using = "btnI")]
+        //private IWebElement elem_submit_button = null;
+
+        [FindsBy(How = How.Id, Using = "hplogo")]
+        private IWebElement elem_logo_img = null;
+
+        public void SetSearchValue(string vSearch)
         {
-            return browser.FindElement(By.Name("q"));
+            search_text.SendKeys(vSearch);
+            search_text.SendKeys(Keys.Return);
         }
 
-        public void FillTxtSearch(string search)
+        // Checks whether the Logo is displayed properly or not
+        public bool getWebPageLogo()
         {
-            GetTxtSearch().SendKeys(search);
+            return elem_logo_img.Displayed;
         }
 
-        public IWebElement SearchButton()
-        {
-            return browser.FindElements(By.Name("btnK"))[1];
-        }
-
-        public void SearchButtonClick()
-        {
-            SearchButton().Click();
-        }
-
-        public IWebElement GoogleLogoImage()
-        {
-            return browser.FindElement(By.Id("hplogo"));
-        }
-
-        public void GoogleLogoImageClick()
-        {
-            GoogleLogoImage().Click();
-        }
-
-        public bool IsGooglePage()
-        {           
-            try
-            {                    
-                return GoogleLogoImage().Displayed;
-            }
-            catch
-            {
-                return false;
-            }            
-        }
-
-        public void CloseBrowser()
-        {
-            browser.Close();
-        }
     }
 }

@@ -1,58 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Automation_Practice.Hooks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support;
+﻿using OpenQA.Selenium;
+using Automation_Practice.Common;
+using TechTalk.SpecFlow;
+using SeleniumExtras.PageObjects;
 
 namespace Automation_Practice.Pages
 {
     public class LoginPage
     {
-        public IWebDriver browser;
-
-        public string AssessToTheAutomationPracticePage(string url)
+        public LoginPage(Browser browser) 
         {
-            browser = new ChromeDriver();
-            return browser.Url = url;
+            PageFactory.InitElements(browser.Driver, this);
         }
 
-        public IWebElement SignInButton()
-        {
-            return browser.FindElement(By.ClassName("login"));
-        }
+        readonly Browser browser = ScenarioContext.Current.Get<Browser>("key_browser");
 
-        public IWebElement Email()
-        {
-            return browser.FindElement(By.Id("email"));
-        }
+        /// <summary>
+        /// The sign in the practice automation page
+        /// </summary>
+        [FindsBy(How = How.ClassName, Using = "login")]
+        private IWebElement _login = null;
 
-        public IWebElement Password()
-        {
-            return browser.FindElement(By.Id("passwd"));
-        }
+        [FindsBy(How = How.Id, Using = "email")]
+        private IWebElement _email = null;
 
-        public IWebElement SignIn()
-        {
-            return browser.FindElement(By.Id("SubmitLogin"));
-        }
+        [FindsBy(How = How.Id, Using = "SubmitLogin")]
+        private IWebElement _SubmitLogin = null;
 
-        public IWebElement SignOut()
-        {
-            return browser.FindElement(By.ClassName("logout"));
-        }
+        [FindsBy(How = How.Id, Using = "passwd")]
+        private IWebElement _passwd = null;
 
-        //public IWebElement UserName()
-        //{
-        //   // return browser.FindElement(By.XPath("//*[@id="header"]/div[2]/div/div/nav/div[1]/a/span"));
-        //}
+        [FindsBy(How = How.ClassName, Using = "logout")]
+        private IWebElement _logout = null;
 
         public bool IsSignInButton()
         {
             try
             {
-                return SignInButton().Displayed;
+                return  _login.Displayed;
             }
             catch
             {
@@ -62,35 +46,34 @@ namespace Automation_Practice.Pages
 
         public void ClickSignInButton()
         {
-            SignInButton().Click();
+            _login.Click();
         }
 
         public void SetEmailValue()
         {
-            Email().SendKeys("vongoclien@gmail.com");
+            _email.SendKeys("vongoclien@gmail.com");
         }
 
         public void SetPasswordValue()
         {
-            Password().SendKeys("lienvo@123");
+            _passwd.SendKeys("lienvo@123");
         }
 
-        public void ClickSignIn()
+        public void ClickSubmitSignIn()
         {
-            SignIn().Click();
+            _SubmitLogin.Click();
         }
 
         public bool IsSignOut()
         {
             try
             {
-                return SignOut().Displayed;
+                return _logout.Displayed;
             }
             catch
             {
                 return false;
             }
         }
-
     }
 }

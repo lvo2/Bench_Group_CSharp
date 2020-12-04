@@ -1,7 +1,8 @@
 ﻿Feature: Login
 	Sign the the automation practice page
 
-@SignIn
+	#login the practice automation page
+@Login 
 Scenario: Sign In the Automation Practice page
 	Given I navigate to the automation practice page
 	And I see the automation practice sign in page is loaded
