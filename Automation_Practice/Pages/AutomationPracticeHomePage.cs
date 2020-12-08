@@ -61,7 +61,11 @@ namespace Automation_Practice.Pages
             var element = driver.FindElement(By.ClassName("product_img_link"));
             element.Click();
             Sleep.Wait(3);
-             driver.FindElement(By.ClassName("fancybox-skin"));
+
+            // Move focus to pop up/ new window/ new frame ????
+            
+            
+            //driver.FindElement(By.ClassName("fancybox-skin"));
             //driver.SwitchTo().Frame(simFrame);
             //driver.SwitchTo().Frame(1);
         }
