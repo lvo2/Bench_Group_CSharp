@@ -29,6 +29,7 @@ namespace Automation_Practice.Hooks
             {
                 browser.Close();
             }
+
         }
     }
 }

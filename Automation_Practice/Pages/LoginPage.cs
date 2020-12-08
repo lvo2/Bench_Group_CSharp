@@ -12,7 +12,7 @@ namespace Automation_Practice.Pages
             PageFactory.InitElements(browser.Driver, this);
         }
 
-        readonly Browser browser = ScenarioContext.Current.Get<Browser>("key_browser");
+        //readonly Browser browser = ScenarioContext.Current.Get<Browser>("key_browser");
 
         /// <summary>
         /// The sign in the practice automation page

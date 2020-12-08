@@ -1,6 +1,5 @@
 ﻿Feature: Login
 	Sign the the automation practice page
-
 	#login the practice automation page
 @Login 
 Scenario: Sign In the Automation Practice page

@@ -8,4 +8,5 @@
   Options: Chrome, Firefox, IE, Chrome-Extensio, Firefox-Extension
   See BrowserFactory.cs for more information -->
   <Browser>Chrome</Browser>
+  
 </TestEnvironment>
