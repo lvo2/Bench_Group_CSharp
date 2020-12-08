@@ -58,16 +58,15 @@ namespace Automation_Practice.Pages
             var driver = browser.Driver;
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("scroll(0, 550)");
+            Sleep.Wait(1);
             var element = driver.FindElement(By.ClassName("product_img_link"));
             element.Click();
-            Sleep.Wait(3);
 
+            Sleep.Wait(2);
             // Move focus to pop up/ new window/ new frame ????
+            driver.SwitchTo().Frame(driver.FindElement(By.ClassName("fancybox-iframe")));
             
-            
-            //driver.FindElement(By.ClassName("fancybox-skin"));
-            //driver.SwitchTo().Frame(simFrame);
-            //driver.SwitchTo().Frame(1);
+
         }
     }
 }
