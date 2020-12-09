@@ -15,15 +15,15 @@ namespace Automation_Practice.StepDefinitions
         public void WhenISelectADressFromTheWomenCollection()
         {
             AutomationPracticeHomePage obj = new AutomationPracticeHomePage(browser);
-            obj.SelectADress();           
+            obj.SelectADress();
+            obj.AddToCart();
         }
         
         [Then(@"I see the dress added in the Cart")]
         public void ThenISeeTheDressAddedInTheCart()
         {
-            //ScenarioContext.Current.Pending();
             AutomationPracticeHomePage obj = new AutomationPracticeHomePage(browser);
-            //obj.AddToCart();
+            Assert.AreEqual(obj.NumberItemsInCart(),1);
         }
     }
 }

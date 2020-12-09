@@ -50,6 +50,23 @@ namespace Automation_Practice.Pages
         public void AddToCart()
         {
             // _addtocart.Click();
+            var driver = browser.Driver;
+            Sleep.Wait(4);
+            var vframe = driver.FindElement(By.ClassName("fancybox-skin")).FindElement(By.TagName("iframe"));
+            driver.SwitchTo().Frame(vframe);
+
+            //Add the selected item to cart
+            var vAddToCart = driver.FindElement(By.Id("product")).FindElement(By.ClassName("primary_block")).FindElement(By.ClassName("pb-right-column")).FindElement(By.Id("buy_block")).FindElement(By.ClassName("box-info-product")).FindElement(By.ClassName("box-cart-bottom")).FindElement(By.Id("add_to_cart"));
+            vAddToCart.FindElement(By.Name("Submit")).Click();
+
+            //Switch to new pop up
+            //driver.SwitchTo().ActiveElement();
+            Sleep.Wait(3);
+
+            //Continue shopping
+            driver.FindElement(By.Id("layer_cart")).FindElement(By.ClassName("clearfix")).FindElement(By.ClassName("button-container")).FindElement(By.XPath("//*[@id='layer_cart']/div[1]/div[2]/div[4]/span")).Click();
+
+            Sleep.Wait(2);
         }
         public void SelectADress()
         {
@@ -62,11 +79,17 @@ namespace Automation_Practice.Pages
             Sleep.Wait(1);
             var element = driver.FindElement(By.ClassName("product_img_link"));
             element.Click();
-            Sleep.Wait(4);
-            var vframe = driver.FindElement(By.ClassName("fancybox-skin")).FindElement(By.TagName("iframe"));
-            driver.SwitchTo().Frame(vframe);
-            driver.FindElement(By.Id("product")).FindElement(By.ClassName("primary_block")).FindElement(By.ClassName("pb-left-column")).FindElement(By.Id("image-block")).FindElement(By.Id("view_full_size")).FindElement(By.Id("bigpic")).Click();
+           
             Sleep.Wait(2);
+        }
+
+        public int NumberItemsInCart() {
+
+            string objectPath = "//*[@id='header']/div[3]/div/div/div[3]/div/a/span[1]";
+            Sleep.Wait(1);
+            int count = browser.Driver.FindElements(By.XPath(objectPath)).Count;
+            return count;
+
         }
     }
 }
