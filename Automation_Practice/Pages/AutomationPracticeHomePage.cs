@@ -5,6 +5,7 @@ using SeleniumExtras.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System.Linq;
 using System;
+using OpenQA.Selenium.Interactions;
 
 namespace Automation_Practice.Pages
 {
@@ -61,12 +62,11 @@ namespace Automation_Practice.Pages
             Sleep.Wait(1);
             var element = driver.FindElement(By.ClassName("product_img_link"));
             element.Click();
-
+            Sleep.Wait(4);
+            var vframe = driver.FindElement(By.ClassName("fancybox-skin")).FindElement(By.TagName("iframe"));
+            driver.SwitchTo().Frame(vframe);
+            driver.FindElement(By.Id("product")).FindElement(By.ClassName("primary_block")).FindElement(By.ClassName("pb-left-column")).FindElement(By.Id("image-block")).FindElement(By.Id("view_full_size")).FindElement(By.Id("bigpic")).Click();
             Sleep.Wait(2);
-            // Move focus to pop up/ new window/ new frame ????
-            driver.SwitchTo().Frame(driver.FindElement(By.ClassName("fancybox-iframe")));
-            
-
         }
     }
 }
