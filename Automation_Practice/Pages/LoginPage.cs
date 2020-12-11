@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using Automation_Practice.Common;
-using TechTalk.SpecFlow;
 using SeleniumExtras.PageObjects;
 
 namespace Automation_Practice.Pages
@@ -11,8 +10,6 @@ namespace Automation_Practice.Pages
         {
             PageFactory.InitElements(browser.Driver, this);
         }
-
-        //readonly Browser browser = ScenarioContext.Current.Get<Browser>("key_browser");
 
         /// <summary>
         /// The sign in the practice automation page
@@ -32,6 +29,10 @@ namespace Automation_Practice.Pages
         [FindsBy(How = How.ClassName, Using = "logout")]
         private IWebElement _logout = null;
 
+        [FindsBy(How = How.XPath, Using = "//*[@id='header']/div[2]/div/div/nav/div[1]/a/span")]
+        private IWebElement _username = null;
+
+
         public bool IsSignInButton()
         {
             try
@@ -44,24 +45,17 @@ namespace Automation_Practice.Pages
             }
         }
 
-        public void ClickSignInButton()
+        public void SetEmailandPassword()
         {
             _login.Click();
-        }
-
-        public void SetEmailValue()
-        {
-            _email.SendKeys("vongoclien@gmail.com");
-        }
-
-        public void SetPasswordValue()
-        {
+        _email.SendKeys("vongoclien@gmail.com");
             _passwd.SendKeys("lienvo@123");
         }
 
         public void ClickSubmitSignIn()
         {
             _SubmitLogin.Click();
+            Sleep.Wait(1);
         }
 
         public bool IsSignOut()
@@ -74,6 +68,11 @@ namespace Automation_Practice.Pages
             {
                 return false;
             }
+        }
+
+        public string UserName()
+        {
+            return _username.Text;
         }
     }
 }

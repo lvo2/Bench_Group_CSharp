@@ -20,22 +20,22 @@ namespace Automation_Practice.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.5.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Select a dress")]
-    public partial class SelectADressFeature
+    [NUnit.Framework.DescriptionAttribute("Search keywords")]
+    public partial class SearchKeywordsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Select a dress.feature"
+#line 1 "Search keywords.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Select a dress", "Log in the Automation Practice page, select a dress from Women collection", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Search keywords", "\tThis feature define outline, example", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,23 @@ namespace Automation_Practice.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Select a dress and add to cart")]
-        [NUnit.Framework.CategoryAttribute("AddToCart")]
-        public virtual void SelectADressAndAddToCart()
+        [NUnit.Framework.DescriptionAttribute("Search keywords")]
+        [NUnit.Framework.CategoryAttribute("Search")]
+        [NUnit.Framework.TestCaseAttribute("dress", null)]
+        [NUnit.Framework.TestCaseAttribute("t-shirt", null)]
+        [NUnit.Framework.TestCaseAttribute("blouse", null)]
+        public virtual void SearchKeywords(string keyword, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "AddToCart"};
+            string[] @__tags = new string[] {
+                    "Search"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a dress and add to cart", null, tagsOfScenario, argumentsOfScenario);
+            argumentsOfScenario.Add("keyword", keyword);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search keywords", null, tagsOfScenario, argumentsOfScenario);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -103,13 +112,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("I am logged in to the practice automation page as a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("I am logged in to the practice automation page as a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
- testRunner.When("I select a item from the Women collection to add to cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When(string.Format("I select \"{0}\" below", keyword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.Then("I see the dress added in the Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I see the \"{0}\" dislayed", keyword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
